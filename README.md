@@ -1,8 +1,37 @@
 # README for ezid_pyppeteer
 
-Uses virtualenv called "mariabot"
+Provides client oriented testing of EZID.
 
-Run pytest with
+## Installation
+
+Install poetry:
+
+```
+pip install poetry 
+```
+
+Clone this repo:
+
+```
+git clone https://github.com/datadavev/ezid_test_client.git
+```
+
+Install dependencies (and optionally create virtualenv if not in one)
+
+```
+cd ezid_test_client
+poetry install
+```
+
+
+Run tests:
+
+```
+ssh -L 18880:localhost:18880 ezid-stage
+pytest
+```
+
+To adjust browser size:
 ```
 pytest \
   --executable-path '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' \
@@ -16,5 +45,3 @@ pytest \
   --window-size 1200 800 \
   test_basic.py::test_mint_anonymous_doi
 ```
-
-
